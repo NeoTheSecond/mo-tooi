@@ -1,6 +1,9 @@
+// Import Keystone apps
 const { Keystone } = require("@keystonejs/keystone");
 const { GraphQLApp } = require("@keystonejs/app-graphql");
 const { AdminUIApp } = require("@keystonejs/app-admin-ui");
+const { NextApp } = require("@keystonejs/app-next");
+
 const { MongooseAdapter: Adapter } = require("@keystonejs/adapter-mongoose");
 const { PasswordAuthStrategy } = require("@keystonejs/auth-password");
 const { atTracking } = require("@keystonejs/list-plugins");
@@ -60,6 +63,7 @@ module.exports = {
     keystone,
     apps: [
         new GraphQLApp(),
-        new AdminUIApp({ enableDefaultRoute: true, authStrategy }),
+        new AdminUIApp({ enableDefaultRoute: false, authStrategy }),
+        new NextApp({ dir: "app" }),
     ],
 };
