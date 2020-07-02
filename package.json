@@ -30,6 +30,8 @@
         "connect-mongo": "^3.2.0",
         "cross-env": "^7.0.0",
         "dotenv": "^8.2.0",
-        "express-session": "^1.17.1"
+        "express-session": "^1.17.1",
+        "semantic-ui-css": "^2.4.1",
+        "semantic-ui-react": "^0.88.2"
     }
 }
