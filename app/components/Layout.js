@@ -14,14 +14,21 @@ const contentStyle = {
 };
 
 const Layout = props => (
-    <Grid columns={3} >
-        <Grid.Row style={{ paddingBottom: "0px" }}>
-            <Grid.Column width={4} style={{ height: "100vh", backgroundColor: "#f5e8d7" }}>
-                <NavBar />
-            </Grid.Column>
-            <Grid.Column width={12}>{props.children}</Grid.Column>
-        </Grid.Row>
-    </Grid>
+    <div className="outer-container" >
+        <Grid columns={3} style={{ margin: "0px" }} >
+            <Grid.Row style={{ paddingBottom: "0px", paddingTop: "0px" }}>
+                <Grid.Column width={4} style={{ height: "100vh", backgroundColor: "#f5e8d7" }}>
+                    <NavBar />
+                </Grid.Column>
+                <Grid.Column width={12} style={{ padding: "0px", backgroundColor: "#f5e8d7" }}>
+                    <div className="container" style={{ display: 'flex' }}>
+
+                        {props.children}
+                    </div>
+                </Grid.Column>
+            </Grid.Row>
+        </Grid>
+    </div>
 )
 
 // const Layout = props => (

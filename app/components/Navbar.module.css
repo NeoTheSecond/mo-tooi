@@ -1,0 +1,13 @@
+.subtitleText{
+    font-size: 2em;
+    text-transform: uppercase;
+    color: #42777f;
+}
+
+
+.activeLink{
+    color: #ca5e42;
+}
+.link{
+    color: #ebae8d
+}

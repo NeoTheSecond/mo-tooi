@@ -31,6 +31,7 @@
         "cross-env": "^7.0.0",
         "dotenv": "^8.2.0",
         "express-session": "^1.17.1",
+        "framer-motion": "^1.11.1",
         "semantic-ui-css": "^2.4.1",
         "semantic-ui-react": "^0.88.2"
     }
