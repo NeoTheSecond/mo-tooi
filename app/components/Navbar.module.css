@@ -9,5 +9,37 @@
     color: #ca5e42;
 }
 .link{
-    color: #ebae8d
+    font-size: 20pt;
+}
+.link:hover{
+    background-color: #f5e8d7 !important;
+    color: #ca5e42 !important
+}
+
+.logo{
+    width: 70% ;
+    height: auto ;
+}
+
+.warning{
+    border-radius: 9px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    width: 65%;
+    background-image: linear-gradient(to right, #ebbb8d,#f5e8d7 );
+    align-items: center;
+    padding: 0.5em;
+}
+.warning p{
+    font-size: 12pt;
+    color: #ca5e42;
+    font-weight: 900;
+}
+.breaker{
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 100%;
+    width: 3px;
+    background-color: #ca5e42;
 }
