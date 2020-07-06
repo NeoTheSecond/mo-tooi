@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
+import Head from 'next/head'
 
 // for parent div to stagger the social media links
 const stagger = {
@@ -28,43 +29,48 @@ const fadeInLeft = {
 
 function Index() {
     return (
-        <motion.div
-            exit={{ x: "50%" }}
-            initial={{ x: "50%" }}
-            animate={{ x: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{
-                height: "100vh",
-                width: "100%",
-                margin: "0px",
-                backgroundImage: "url(/images/foreground.png)",
-                backgroundSize: "contain",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-end",
-                alignItems: "flex-end",
-                padding: "2em"
-            }}
-        >
-            <motion.div variants={stagger} className="social-container" initial="initial" animate="animate">
-                <motion.img
-                    src="/icons/tw-icon.png"
-                    style={{ width: "50px", height: "50px" }}
-                    variants={fadeInLeft}
-                />
-                <motion.img
-                    src="/icons/ins-icon.png"
-                    style={{ width: "50px", height: "50px" }}
-                    variants={fadeInLeft}
-                />
-                <motion.img
-                    src="/icons/fb-icon.png"
-                    style={{ width: "50px", height: "50px" }}
-                    variants={fadeInLeft}
-                />
-            </motion.div>
+        <>
+            <Head>
+                <title>Mơ Tooi</title>
+                <meta property="og:title" content="Mơ Tooi" key="title" />
+            </Head>
+            <motion.div
+                exit={{ x: "50%" }}
+                initial={{ x: "50%" }}
+                animate={{ x: 0 }}
+                transition={{ duration: 0.8 }}
+                style={{
+                    height: "100vh",
+                    width: "100%",
+                    margin: "0px",
+                    backgroundImage: "url(/images/foreground.png)",
+                    backgroundSize: "contain",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-end",
+                    alignItems: "flex-end",
+                    padding: "2em"
+                }}
+            >
+                <motion.div variants={stagger} className="social-container" initial="initial" animate="animate">
+                    <motion.img
+                        src="/icons/tw-icon.png"
+                        style={{ width: "50px", height: "50px" }}
+                        variants={fadeInLeft}
+                    />
+                    <motion.img
+                        src="/icons/ins-icon.png"
+                        style={{ width: "50px", height: "50px" }}
+                        variants={fadeInLeft}
+                    />
+                    <motion.img
+                        src="/icons/fb-icon.png"
+                        style={{ width: "50px", height: "50px" }}
+                        variants={fadeInLeft}
+                    />
+                </motion.div>
 
-            {/* <motion.div variants={stagger} className="social-container">
+                {/* <motion.div variants={stagger} className="social-container">
                 <motion.img
                     src="/icons/tw-icon.png"
                     style={{ width: "50px", height: "50px" }}
@@ -87,7 +93,8 @@ function Index() {
                     transition={{ duration: 0.5, delay: 0.8 }}
                 />
             </motion.div> */}
-        </motion.div>
+            </motion.div>
+        </>
     )
     // return (
 
