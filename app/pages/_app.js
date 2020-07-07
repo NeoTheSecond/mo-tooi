@@ -1,5 +1,4 @@
-import 'semantic-ui-css/semantic.min.css'
-import './styles.css'
+import 'semantic-ui-less/semantic.less'
 import Layout from "../components/Layout"
 import { AnimatePresence } from 'framer-motion';
 

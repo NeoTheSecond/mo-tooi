@@ -27,13 +27,22 @@
         "@keystonejs/file-adapters": "^7.0.0",
         "@keystonejs/keystone": "^11.0.0",
         "@keystonejs/list-plugins": "^7.0.2",
+        "@zeit/next-less": "^1.0.1",
         "axios": "^0.19.2",
         "connect-mongo": "^3.2.0",
         "cross-env": "^7.0.0",
         "dotenv": "^8.2.0",
         "express-session": "^1.17.1",
         "framer-motion": "^1.11.1",
+        "less": "^3.11.3",
+        "next-compose-plugins": "^2.2.0",
         "semantic-ui-css": "^2.4.1",
+        "semantic-ui-less": "^2.4.1",
         "semantic-ui-react": "^0.88.2"
+    },
+    "devDependencies": {
+        "clean-css": "^4.2.3",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "url-loader": "^4.1.0"
     }
 }

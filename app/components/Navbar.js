@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Menu, Image, Container } from 'semantic-ui-react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import styles from "./Navbar.module.css"
 import { motion } from 'framer-motion';
+
 
 const fadeInLeft = {
     initial: {
@@ -30,14 +30,14 @@ function Navbar() {
             <div style={{ paddingLeft: "2em", paddingTop: "8em", paddingBottom: "8em", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                 <div>
                     <Link href="/">
-                        <a><img className={styles.logo} src='/images/mo-tooi-logo.png' /></a>
+                        <a><img src='/images/mo-tooi-logo.png' /></a>
                     </Link>
                     <Menu.Item>
-                        <p className={styles.subtitleText}>Là <b>một</b> trang web<br /> của <b>những</b> kẻ mộng mơ</p>
+                        <p >Là <b>một</b> trang web<br /> của <b>những</b> kẻ mộng mơ</p>
                     </Menu.Item>
                     <Link href="/poems">
                         <Menu.Item
-                            className={styles.link}
+
                             name='Poems'
                             active={"/poems" === router.pathname}
                             onClick={() => setMenu('/poems')}
@@ -46,7 +46,7 @@ function Navbar() {
                     </Link>
                     <Link href="/writings">
                         <Menu.Item
-                            className={styles.link}
+
                             name='Writings'
                             active={"/writings" === router.pathname}
                             onClick={() => setMenu('/writings')}
@@ -56,7 +56,7 @@ function Navbar() {
 
                     <Link href="/about">
                         <Menu.Item
-                            className={styles.link}
+
                             name='About'
                             active={"/about" === router.pathname}
                             onClick={() => setMenu('/about')}
@@ -64,13 +64,13 @@ function Navbar() {
                         />
                     </Link>
                 </div>
-                <motion.div className={styles.warning}
+                <motion.div
                     variants={fadeInLeft}
                     initial="initial"
                     animate="animate"
                 >
                     <img src="/icons/warning-icon.png" style={{ height: "50px", width: "auto" }} />
-                    <div className={styles.breaker}></div>
+                    <div ></div>
                     <p>
                         Đọc quá 180 phút<br /> một ngày ảnh hưởng <br /> xấu đến sức khỏe
                     </p>
