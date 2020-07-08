@@ -3,7 +3,7 @@ import { Menu, Image, Container } from 'semantic-ui-react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion';
-
+import './navbar.less';
 
 const fadeInLeft = {
     initial: {
@@ -30,14 +30,14 @@ function Navbar() {
             <div style={{ paddingLeft: "2em", paddingTop: "8em", paddingBottom: "8em", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                 <div>
                     <Link href="/">
-                        <a><img src='/images/mo-tooi-logo.png' /></a>
+                        <a><img className="logo" src='/images/mo-tooi-logo.png' /></a>
                     </Link>
                     <Menu.Item>
-                        <p >Là <b>một</b> trang web<br /> của <b>những</b> kẻ mộng mơ</p>
+                        <p className="subtitleText" >Là <b>một</b> trang web<br /> của <b>những</b> kẻ mộng mơ</p>
                     </Menu.Item>
                     <Link href="/poems">
                         <Menu.Item
-
+                            className="link"
                             name='Poems'
                             active={"/poems" === router.pathname}
                             onClick={() => setMenu('/poems')}
@@ -46,7 +46,7 @@ function Navbar() {
                     </Link>
                     <Link href="/writings">
                         <Menu.Item
-
+                            className="link"
                             name='Writings'
                             active={"/writings" === router.pathname}
                             onClick={() => setMenu('/writings')}
@@ -56,7 +56,7 @@ function Navbar() {
 
                     <Link href="/about">
                         <Menu.Item
-
+                            className="link"
                             name='About'
                             active={"/about" === router.pathname}
                             onClick={() => setMenu('/about')}
@@ -65,12 +65,13 @@ function Navbar() {
                     </Link>
                 </div>
                 <motion.div
+                    className="warning"
                     variants={fadeInLeft}
                     initial="initial"
                     animate="animate"
                 >
                     <img src="/icons/warning-icon.png" style={{ height: "50px", width: "auto" }} />
-                    <div ></div>
+                    <div className="breaker"></div>
                     <p>
                         Đọc quá 180 phút<br /> một ngày ảnh hưởng <br /> xấu đến sức khỏe
                     </p>
