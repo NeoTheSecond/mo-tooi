@@ -45,7 +45,7 @@ export default function Poems() {
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 transition={{ duration: 0.5 }}
-                style={{ backgroundColor: "#1f535b", height: "100vh", width: "100%", padding: "3em" }}
+                style={{ backgroundColor: "#1f535b", height: "100vh", padding: "3em" }}
             >
                 <Grid style={{ marign: "0px" }}>
                     {data.map(post => <Grid.Column width={8}><h1>{post.title}</h1></Grid.Column>)}
