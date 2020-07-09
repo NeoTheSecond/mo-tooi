@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import axios from 'axios';
-import { Grid, Image } from 'semantic-ui-react'
 
 export default function Poems() {
     const [data, setData] = useState([])
@@ -47,9 +46,7 @@ export default function Poems() {
                 transition={{ duration: 0.5 }}
                 style={{ backgroundColor: "#1f535b", height: "100vh", padding: "3em" }}
             >
-                <Grid style={{ marign: "0px" }}>
-                    {data.map(post => <Grid.Column width={8}><h1>{post.title}</h1></Grid.Column>)}
-                </Grid>
+                {data.map(post => <h1>{post.title}</h1>)}
             </motion.div>
         </>
 

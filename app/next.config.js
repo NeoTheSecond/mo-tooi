@@ -1,4 +1,3 @@
-const path = require('path');
 const withLess = require('@zeit/next-less');
 const withPlugins = require('next-compose-plugins');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -18,7 +17,6 @@ const nextConfig = {
                 },
             },
         });
-        config.resolve.alias['../../theme.config$'] = path.join(config.context, '/semantic-ui/theme.config');
         config.plugins.push(
             new OptimizeCssAssetsPlugin({
                 assetNameRegExp: /\.css$/g,
