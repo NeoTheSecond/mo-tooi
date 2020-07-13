@@ -81,7 +81,7 @@ function Navbar() {
             classes={{
                 paper: classes.drawerPaper,
             }}
-            anchor="left"
+            anchor="top"
         >
             <div>
                 <Link href="/">
