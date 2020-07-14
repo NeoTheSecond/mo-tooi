@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#f5e8d7",
         border: 0,
         display: "flex",
+        height: "100%",
         flexDirection: "column",
         justifyContent: "space-between",
         paddingLeft: "2em",
