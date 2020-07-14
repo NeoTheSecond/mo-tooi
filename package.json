@@ -28,6 +28,7 @@
         "@keystonejs/keystone": "^11.0.0",
         "@keystonejs/list-plugins": "^7.0.2",
         "@material-ui/core": "^4.11.0",
+        "@material-ui/icons": "^4.9.1",
         "@zeit/next-less": "^1.0.1",
         "axios": "^0.19.2",
         "connect-mongo": "^3.2.0",

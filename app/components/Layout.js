@@ -16,7 +16,7 @@ const Layout = props => {
     const classes = useStyles();
     return (
         <div className={classes.root} >
-            {/* <NavBar /> */}
+            <NavBar />
             <main className={classes.content} >
                 {props.children}
             </main>
