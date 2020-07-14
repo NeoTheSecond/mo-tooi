@@ -32,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
             flexShrink: 0,
         },
     },
+    appBar: {
+        color: theme.palette.background.default,
+        backgroundColor: theme.palette.background.content,
+    },
     drawerPaper: {
         width: drawerWidth,
         backgroundColor: "#f5e8d7",
@@ -54,6 +58,12 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: "transparent"
         }
 
+    },
+    toolbar: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
     },
     selected: {
         color: '#ca5e42',
@@ -97,8 +107,8 @@ function Navbar(props) {
     return (
         <>
             <Hidden smUp implementation="css">
-                <AppBar position="fixed" className={classes.appBar}>
-                    <Toolbar>
+                <AppBar elevation={0} position="fixed" className={classes.appBar}>
+                    <Toolbar className={classes.toolbar}>
                         <IconButton
                             color="inherit"
                             aria-label="open drawer"
@@ -108,9 +118,7 @@ function Navbar(props) {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="h6" noWrap>
-                            Responsive drawer
-                    </Typography>
+                        <img className="navbar-logo" src='/images/mo-tooi-logo.png' />
                     </Toolbar>
                 </AppBar>
             </Hidden>
