@@ -87,7 +87,7 @@ const fadeInLeft = {
         transition: {
             duration: 1,
             // ease: [0.6, -0.05, 0.01, 0.99],
-            delay: 4
+            delay: 6
         }
     }
 }
@@ -107,7 +107,7 @@ function Navbar(props) {
     return (
         <>
             <Hidden smUp implementation="css">
-                <AppBar elevation={0} position="fixed" className={classes.appBar}>
+                <AppBar elevation={2} position="fixed" className={classes.appBar}>
                     <Toolbar className={classes.toolbar}>
                         <IconButton
                             color="inherit"
@@ -118,7 +118,9 @@ function Navbar(props) {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <img className="navbar-logo" src='/images/mo-tooi-logo.png' />
+                        <Link href="/">
+                            <img className="navbar-logo" src='/images/mo-tooi-logo.png' />
+                        </Link>
                     </Toolbar>
                 </AppBar>
             </Hidden>
@@ -153,7 +155,7 @@ function Navbar(props) {
                                         button
                                         onClick={handleDrawerToggle}
                                     >
-                                        <ListItemText primary="Poems" />
+                                        <ListItemText primary="THƠ" />
                                     </ListItem>
                                 </Link>
                                 <Link href="/writings">
@@ -163,7 +165,7 @@ function Navbar(props) {
                                         button
                                         onClick={handleDrawerToggle}
                                     >
-                                        <ListItemText primary="Writings" />
+                                        <ListItemText primary={<Typography >VĂN</Typography>} />
                                     </ListItem>
                                 </Link>
 
@@ -174,7 +176,7 @@ function Navbar(props) {
                                         button
                                         onClick={handleDrawerToggle}
                                     >
-                                        <ListItemText primary="About" />
+                                        <ListItemText primary="THÔNG TIN" />
                                     </ListItem>
                                 </Link>
                             </List>
@@ -209,6 +211,7 @@ function Navbar(props) {
                             </Link>
 
                             <p className="subtitleText" >Là <b>một</b> trang web<br /> của <b>những</b> kẻ mộng mơ</p>
+                            {/* <Typography variant="h5" className="subtitleText">Là <b>một</b> trang web<br /> của <b>những</b> kẻ mộng mơ</Typography> */}
                             <List>
                                 <Link href="/poems">
                                     <ListItem
@@ -216,7 +219,7 @@ function Navbar(props) {
                                         classes={{ root: classes.link, selected: classes.selected }}
                                         button
                                     >
-                                        <ListItemText primary="Poems" />
+                                        <ListItemText primary="THƠ" />
                                     </ListItem>
                                 </Link>
                                 <Link href="/writings">
@@ -225,7 +228,7 @@ function Navbar(props) {
                                         classes={{ root: classes.link, selected: classes.selected }}
                                         button
                                     >
-                                        <ListItemText primary="Writings" />
+                                        <ListItemText primary={<Typography >VĂN</Typography>} />
                                     </ListItem>
                                 </Link>
 
@@ -235,7 +238,7 @@ function Navbar(props) {
                                         classes={{ root: classes.link, selected: classes.selected }}
                                         button
                                     >
-                                        <ListItemText primary="About" />
+                                        <ListItemText primary="THÔNG TIN" />
                                     </ListItem>
                                 </Link>
                             </List>
