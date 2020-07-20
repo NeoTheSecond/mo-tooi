@@ -39,7 +39,7 @@ const fullFeatured = {
         { title: "Some class", value: "class-name" },
     ],
     importcss_append: true,
-    file_picker_callback: function(callback, value, meta) {
+    file_picker_callback: function (callback, value, meta) {
         /* Provide file and text for the link dialog */
         if (meta.filetype === "file") {
             callback("https://www.google.com/logos/google.jpg", {
@@ -163,6 +163,10 @@ module.exports = {
         title: {
             type: Text,
             isRequired: true,
+        },
+        preview: {
+            type: Wysiwyg,
+            editorConfig: fullFeatured,
         },
         description: {
             type: Wysiwyg,

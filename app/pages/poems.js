@@ -5,7 +5,10 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Head from 'next/head';
 import axios from 'axios';
+import './poems.less';
+import Card from '../components/Card'
 import { makeStyles } from '@material-ui/core/styles';
+import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,26 +18,25 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
         // textAlign: 'center',
-        color: theme.palette.text.secondary,
-        backgroundColor: ""
+        color: theme.palette.background.default,
+        backgroundColor: "blue"
     },
+    grid: {
+        padding: "5rem"
+    }
 }));
 
-export default function Poems() {
-    const [data, setData] = useState([])
-    const classes = useStyles()
-    // fetch the published poems
-    useEffect(() => {
-        axios({
-            url: "http://localhost:3000/admin/api",
-            method: 'post',
-            data: {
-                query: `
+const fetchData = async () => await axios({
+    url: "http://localhost:3000/admin/api",
+    method: 'post',
+    data: {
+        query: `
                     query {
                         allPosts(where: {contentType: Poem, published: true}){
                             id,
                             title,
                             contentType,
+                            preview,
                             description,
                             thumbnail{
                                 publicUrl
@@ -47,10 +49,39 @@ export default function Poems() {
                         }
                     }
                 `
-            }
-        }).then(res => setData(res.data.data.allPosts))
-            .catch(err => console.log(err))
-    }, [])
+    }
+}).then(res => res.data)
+    .catch(err => console.log(err))
+
+export async function getStaticProps() {
+    // Call an external API endpoint to get posts.
+    // You can use any data fetching librarVN
+
+    const data = await fetchData()
+
+    // By returning { props: posts }, the Blog component
+    // will receive `posts` as a prop at build time
+    return {
+        props: {
+            posts: data.data.allPosts
+        },
+    }
+}
+
+function Poems({ posts }) {
+    const classes = useStyles()
+
+    const CardContent = ({ post }) => {
+        return <Card post={post} />
+        // return (
+        //     <Paper elevation={0} className={classes.paper}>
+        //         <h1>{post.title}</h1>
+        //         <div className="preview-content" dangerouslySetInnerHTML={{ __html: post.preview }} />
+
+        //     </Paper>
+        // )
+    }
+
     return (
         <>
             <Head>
@@ -68,9 +99,9 @@ export default function Poems() {
                 >
                     <div className={classes.toolbar} />
                     <Grid container spacing={3}>
-                        {data.map(post => (
+                        {posts.map(post => (
                             <Grid item xs={6} key={post.id}>
-                                <Paper elevation={0} className={classes.paper}><h1>{post.title}</h1></Paper>
+                                <CardContent post={post} />
                             </Grid>
                         ))}
 
@@ -86,10 +117,10 @@ export default function Poems() {
                     transition={{ duration: 0.5 }}
                     style={{ backgroundColor: "#1f535b", height: "100vh", padding: "3em", display: 'flex' }}
                 >
-                    <Grid container spacing={3}>
-                        {data.map(post => (
+                    <Grid container spacing={3} className={classes.grid}>
+                        {posts.map(post => (
                             <Grid item xs={6} key={post.id}>
-                                <Paper elevation={0} className={classes.paper}><h1>{post.title}</h1></Paper>
+                                <CardContent post={post} />
                             </Grid>
                         ))}
 
@@ -101,3 +132,5 @@ export default function Poems() {
 
     )
 }
+
+export default Poems;
