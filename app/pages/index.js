@@ -48,7 +48,7 @@ function Index() {
                 <title>Mơ Tooi</title>
                 <meta property="og:title" content="Mơ Tooi" key="title" />
             </Head>
-            <Hidden smUp implementation="css">
+            <Hidden mdUp implementation="css">
                 <motion.div
                     className="container2"
                     exit={{ y: "50%" }}
@@ -77,7 +77,7 @@ function Index() {
                     </motion.div>
                 </motion.div>
             </Hidden>
-            <Hidden xsDown implementation="css">
+            <Hidden smDown implementation="css">
                 <motion.div
                     className="container"
                     exit={{ x: "50%" }}

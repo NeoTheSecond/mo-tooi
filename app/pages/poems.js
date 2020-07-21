@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#1f535b",
         display: 'flex',
         flexDirection: "column",
+        minHeight: "100vh",
         [theme.breakpoints.up('lg')]: {
-            minHeight: "100vh",
             padding: "5rem",
         },
         [theme.breakpoints.down('md')]: {
@@ -100,7 +100,7 @@ function Poems({ posts }) {
                 <title>Mơ Tooi</title>
                 <meta property="og:title" content="Mơ Tooi" key="title" />
             </Head>
-            <Hidden mdUp implementation="css">
+            <Hidden smUp implementation="css">
                 {/* mobile size */}
                 <motion.div
                     exit={{ y: "100%" }}
@@ -130,6 +130,7 @@ function Poems({ posts }) {
                     className={classes.container}
 
                 >
+                    <Hidden mdUp implementation="css"><div className={classes.toolbar} /></Hidden>
                     <Grid container spacing={3} className={classes.grid}>
                         {posts.map(post => (
                             <Grid item xs={6} key={post.id}>

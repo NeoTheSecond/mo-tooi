@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     drawer: {
         // width: drawerWidth,
         // flexShrink: 0,
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
             width: drawerWidth,
             flexShrink: 0,
         },
@@ -106,7 +106,7 @@ function Navbar(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
     return (
         <>
-            <Hidden smUp implementation="css">
+            <Hidden mdUp implementation="css">
                 <AppBar elevation={2} position="fixed" className={classes.appBar}>
                     <Toolbar className={classes.toolbar}>
                         <IconButton
@@ -195,7 +195,7 @@ function Navbar(props) {
                         </motion.div>
                     </Drawer>
                 </Hidden>
-                <Hidden xsDown implementation="css">
+                <Hidden smDown implementation="css">
                     {/* desktop size */}
                     <Drawer
                         className={classes.drawer}
