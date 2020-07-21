@@ -9,15 +9,17 @@ import theme from './theme';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        minWidth: 275,
-        maxWidth: 400,
-        maxHeight: 220,
+        // minWidth: 275,
         backgroundColor: "transparent",
         color: theme.palette.background.default,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        height: "100%"
+        height: "100%",
+        [theme.breakpoints.up('lg')]: {
+            maxWidth: 400,
+            maxHeight: 250,
+        },
     },
     bullet: {
         display: 'inline-block',

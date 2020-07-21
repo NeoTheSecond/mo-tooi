@@ -22,7 +22,19 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "blue"
     },
     grid: {
-        padding: "5rem"
+        // padding: "5rem"
+    },
+    container: {
+        backgroundColor: "#1f535b",
+        display: 'flex',
+        flexDirection: "column",
+        [theme.breakpoints.up('lg')]: {
+            minHeight: "100vh",
+            padding: "5rem",
+        },
+        [theme.breakpoints.down('md')]: {
+            padding: "1rem"
+        }
     }
 }));
 
@@ -88,19 +100,19 @@ function Poems({ posts }) {
                 <title>Mơ Tooi</title>
                 <meta property="og:title" content="Mơ Tooi" key="title" />
             </Head>
-            <Hidden smUp implementation="css">
+            <Hidden mdUp implementation="css">
                 {/* mobile size */}
                 <motion.div
                     exit={{ y: "100%" }}
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
                     transition={{ duration: 0.5 }}
-                    style={{ backgroundColor: "#1f535b", height: "100vh", flexDirection: "column", padding: "3em", display: 'flex' }}
+                    className={classes.container}
                 >
                     <div className={classes.toolbar} />
                     <Grid container spacing={3}>
                         {posts.map(post => (
-                            <Grid item xs={6} key={post.id}>
+                            <Grid item xs={12} key={post.id}>
                                 <CardContent post={post} />
                             </Grid>
                         ))}
@@ -115,7 +127,8 @@ function Poems({ posts }) {
                     initial={{ x: "100%" }}
                     animate={{ x: 0 }}
                     transition={{ duration: 0.5 }}
-                    style={{ backgroundColor: "#1f535b", height: "100vh", padding: "3em", display: 'flex' }}
+                    className={classes.container}
+
                 >
                     <Grid container spacing={3} className={classes.grid}>
                         {posts.map(post => (
