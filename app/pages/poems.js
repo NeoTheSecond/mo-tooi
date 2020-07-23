@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion';
-import Hidden from '@material-ui/core/Hidden';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Head from 'next/head';
-import axios from 'axios';
-import './poems.less';
-import Card from '../components/Card'
-import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Hidden from "@material-ui/core/Hidden";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import Head from "next/head";
+import axios from "axios";
+import "./poems.less";
+import Card from "../components/Card";
+import { makeStyles } from "@material-ui/core/styles";
+import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,30 +19,31 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         // textAlign: 'center',
         color: theme.palette.background.default,
-        backgroundColor: "blue"
+        backgroundColor: "blue",
     },
     grid: {
         // padding: "5rem"
     },
     container: {
         backgroundColor: "#1f535b",
-        display: 'flex',
+        display: "flex",
         flexDirection: "column",
         minHeight: "100vh",
-        [theme.breakpoints.up('lg')]: {
+        [theme.breakpoints.up("lg")]: {
             padding: "5rem",
         },
-        [theme.breakpoints.down('md')]: {
-            padding: "1rem"
-        }
-    }
+        [theme.breakpoints.down("md")]: {
+            padding: "1rem",
+        },
+    },
 }));
 
-const fetchData = async () => await axios({
-    url: "http://localhost:3000/admin/api",
-    method: 'post',
-    data: {
-        query: `
+const fetchData = async () =>
+    await axios({
+        url: "http://localhost:3000/admin/api",
+        method: "post",
+        data: {
+            query: `
                     query {
                         allPosts(where: {contentType: Poem, published: true}){
                             id,
@@ -60,31 +61,32 @@ const fetchData = async () => await axios({
                             views
                         }
                     }
-                `
-    }
-}).then(res => res.data)
-    .catch(err => console.log(err))
+                `,
+        },
+    })
+        .then((res) => res.data)
+        .catch((err) => console.log(err));
 
 export async function getStaticProps() {
     // Call an external API endpoint to get posts.
     // You can use any data fetching librarVN
 
-    const data = await fetchData()
+    const data = await fetchData();
 
     // By returning { props: posts }, the Blog component
     // will receive `posts` as a prop at build time
     return {
         props: {
-            posts: data.data.allPosts
+            posts: data.data.allPosts,
         },
-    }
+    };
 }
 
 function Poems({ posts }) {
-    const classes = useStyles()
+    const classes = useStyles();
 
     const CardContent = ({ post }) => {
-        return <Card post={post} />
+        return <Card post={post} />;
         // return (
         //     <Paper elevation={0} className={classes.paper}>
         //         <h1>{post.title}</h1>
@@ -92,7 +94,7 @@ function Poems({ posts }) {
 
         //     </Paper>
         // )
-    }
+    };
 
     return (
         <>
@@ -111,12 +113,11 @@ function Poems({ posts }) {
                 >
                     <div className={classes.toolbar} />
                     <Grid container spacing={3}>
-                        {posts.map(post => (
+                        {posts.map((post) => (
                             <Grid item xs={12} key={post.id}>
                                 <CardContent post={post} />
                             </Grid>
                         ))}
-
                     </Grid>
                 </motion.div>
             </Hidden>
@@ -128,23 +129,21 @@ function Poems({ posts }) {
                     animate={{ x: 0 }}
                     transition={{ duration: 0.5 }}
                     className={classes.container}
-
                 >
-                    <Hidden mdUp implementation="css"><div className={classes.toolbar} /></Hidden>
+                    <Hidden mdUp implementation="css">
+                        <div className={classes.toolbar} />
+                    </Hidden>
                     <Grid container spacing={3} className={classes.grid}>
-                        {posts.map(post => (
+                        {posts.map((post) => (
                             <Grid item xs={6} key={post.id}>
                                 <CardContent post={post} />
                             </Grid>
                         ))}
-
                     </Grid>
                 </motion.div>
             </Hidden>
-
         </>
-
-    )
+    );
 }
 
 export default Poems;
