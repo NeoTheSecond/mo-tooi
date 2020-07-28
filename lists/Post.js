@@ -1,4 +1,5 @@
 const {
+    Slug,
     Text,
     CalendarDay,
     Checkbox,
@@ -197,6 +198,7 @@ module.exports = {
                 isReadOnly: true,
             },
         },
+        url: { type: Slug, isUnique: true },
     },
     labelField: "title",
     adminConfig: {

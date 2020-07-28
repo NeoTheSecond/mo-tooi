@@ -48,17 +48,11 @@ const fetchData = async () =>
                         allPosts(where: {contentType: Poem, published: true}){
                             id,
                             title,
-                            contentType,
                             preview,
-                            description,
                             thumbnail{
                                 publicUrl
                             },
-                            mainImage{
-                                publicUrl
-                            },
-                            published,
-                            views
+                            url
                         }
                     }
                 `,
@@ -67,7 +61,7 @@ const fetchData = async () =>
         .then((res) => res.data)
         .catch((err) => console.log(err));
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     // Call an external API endpoint to get posts.
     // You can use any data fetching librarVN
 

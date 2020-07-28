@@ -46,7 +46,7 @@ export default function SimpleCard({ post }) {
     const bull = <span className={classes.bullet}>•</span>;
 
     return (
-        <Link href="/">
+        <Link href="/poems/[url]" as={`/poems/${post.url}`}>
             <Card className={classes.root} elevation={0}>
                 <CardActionArea>
                     <CardContent>
