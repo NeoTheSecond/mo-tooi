@@ -52,7 +52,9 @@ const fetchData = async () =>
                             thumbnail{
                                 publicUrl
                             },
-                            url
+                            url,
+                            createdAt,
+                            updatedAt
                         }
                     }
                 `,

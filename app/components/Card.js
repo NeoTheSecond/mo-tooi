@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import theme from "./theme";
 import Link from "next/link";
 import CardActionArea from "@material-ui/core/CardActionArea";
+import { format } from 'date-fns'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,7 +72,8 @@ export default function SimpleCard({ post }) {
                         color="textSecondary"
                         gutterBottom
                     >
-                        19 7 31
+                        {format(new Date(post.createdAt), 'dd MM yyyy')}
+
                     </Typography>
                 </CardActionArea>
             </Card>

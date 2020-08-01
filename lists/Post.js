@@ -8,6 +8,7 @@ const {
     Select,
     CloudinaryImage,
 } = require("@keystonejs/fields");
+const { atTracking } = require('@keystonejs/list-plugins');
 
 const { Wysiwyg } = require("@keystonejs/fields-wysiwyg-tinymce");
 const { CloudinaryAdapter } = require("@keystonejs/file-adapters");
@@ -200,6 +201,17 @@ module.exports = {
         },
         url: { type: Slug, isUnique: true },
     },
+    plugins: [
+        atTracking({
+            format: "dd/mm/YYYY h:mm A",
+            access: {
+                read: true,
+                create: true,
+                update: true
+            }
+
+        })
+    ],
     labelField: "title",
     adminConfig: {
         defaultColumns: "contentType, published, views",
